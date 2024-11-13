@@ -17,7 +17,7 @@ alert(`The weather in ${response.data.name} is ${response.data.main.temp}C`);
   height="80"
   width="80"
   radius="9"
-  color="blue"
+  color="white"
   ariaLabel="loading"
   wrapperStyle
   wrapperClass
