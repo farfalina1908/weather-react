@@ -6,7 +6,7 @@ export default function Weather(props) {
 
     function handleResponse(response) {
        
-alert(`The weather in ${props.city} is ${response.data.main.temp}C`);
+alert(`The weather in ${response.data.name} is ${response.data.main.temp}C`);
 
     } 
         let apiKey = "094780c710fa4efd669f0df8c3991927";
@@ -17,7 +17,7 @@ alert(`The weather in ${props.city} is ${response.data.main.temp}C`);
   height="80"
   width="80"
   radius="9"
-  color="green"
+  color="blue"
   ariaLabel="loading"
   wrapperStyle
   wrapperClass

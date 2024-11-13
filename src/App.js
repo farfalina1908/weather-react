@@ -9,7 +9,7 @@ function App() {
           
         </h1>
 
-       <Weather city="Dnipro"/>
+       <Weather city="Barcelona"/>
       </header>
     </div>
   );
