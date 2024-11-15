@@ -60,7 +60,7 @@ export default function Weather(props) {
     
       if (loaded) {
         return (
-          <div class="container">
+          <div>
             {form}
 <div class="Weather-info"> 
   <div class="row">

@@ -1,3 +1,8 @@
+.App {
+  margin: 60px auto;
+  max-width: 800px;
+}
+
 .container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
   --bs-gutter-x: 1.5rem;
   --bs-gutter-y: 0;
@@ -14,7 +19,12 @@
   color: #878787;
   font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
   padding: 40px;
+
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
+
 
 
 .Weather h1 {
@@ -47,21 +57,7 @@
   padding: 15px 0;
 }
 
-.Weather-wrapper {
-   
-    background: #fff;
-    border-radius: 16px;
-    box-shadow: 0 30px 50px #41326414;
-    color: #878787;
-    font-family: Cerebri-Sans, Helvetica, Arial, sans-serif;
-    padding: 40px;
-    min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  /* align-items: center; */
-  /* justify-content: center; */
-  /* font-size: calc(10px + 2vmin); */
-}
+
 
 .Weather-form {
   display: flex;
