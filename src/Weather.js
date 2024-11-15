@@ -3,25 +3,27 @@ import axios from "axios";
 import { Audio } from 'react-loader-spinner'
 
 export default function Weather(props) {
-    const [city, setCity] = useState("");
-    const [weather, setWeather] = useState({});
-    const [loaded, setLoaded] = useState(  
-        <Audio
-            height="80"
-            width="80"
-            radius="9"
-            color="white"
-            ariaLabel="loading"
-            wrapperStyle
-            wrapperClass
-          />);
+    const [city, setCity] = useState(props.defaultCity);
+    const [weather, setWeather] = useState({ready: false});
+    // const [loaded, setLoaded] = useState(  
+    //     <Audio
+    //         height="80"
+    //         width="80"
+    //         radius="9"
+    //         color="white"
+    //         ariaLabel="loading"
+    //         wrapperStyle
+    //         wrapperClass
+    //       />);
 
     function handleResponse(response) {
        
-        setLoaded(true);
+        // setLoaded(true);
         setWeather({
+          ready: true,
+          coordinates: response.data.coord,
+          date: new Date(response.data.time * 1000),
           name: response.data.name,
-          day: response.data.date,
           temperature: response.data.main.temp,
           description: response.data.weather[0].description,
           humidity: response.data.main.humidity,
@@ -30,11 +32,15 @@ export default function Weather(props) {
         });
 
     } 
+
+    function search() {
+      let apiKey = "094780c710fa4efd669f0df8c3991927";
+      let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+      axios.get(apiUrl).then(handleResponse);
+    }
     function handleSearch(event) {
         event.preventDefault();
-        let apiKey = "094780c710fa4efd669f0df8c3991927";
-        let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-        axios.get(apiUrl).then(handleResponse);
+        search();
     }
 
     function updateCity(event) {
@@ -58,7 +64,7 @@ export default function Weather(props) {
       
       );
     
-      if (loaded) {
+      if (weather.ready) {
         return (
           <div>
             {form}
@@ -162,17 +168,17 @@ export default function Weather(props) {
           </div>
         );
       } else {
+        search();
         return (   
-            form
-    //     <Audio
-    //     height="80"
-    //     width="80"
-    //     radius="9"
-    //     color="white"
-    //     ariaLabel="loading"
-    //     wrapperStyle
-    //     wrapperClass
-    //   />
+        <Audio
+        height="80"
+        width="80"
+        radius="9"
+        color="white"
+        ariaLabel="loading"
+        wrapperStyle
+        wrapperClass
+      />
     );
      
       }
