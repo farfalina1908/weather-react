@@ -155,7 +155,7 @@ export default function Weather(props) {
 </div>
 
 <footer>
-  This project was coded by Olena Berezina and <a href="">is open-sourced on GitHub</a> and hosted on Netlify
+  This project was coded by Olena Berezina and <a href="https://github.com/farfalina1908/weather-react/" target="_blank" rel="noopener noreferrer">is open-sourced on GitHub</a> and hosted on Netlify
 </footer>
               </div>  
             </div>
