@@ -20,6 +20,8 @@ export default function Weather(props) {
        
         setLoaded(true);
         setWeather({
+          name: response.data.name,
+          day: response.data.date,
           temperature: response.data.main.temp,
           description: response.data.weather[0].description,
           humidity: response.data.main.humidity,
@@ -40,29 +42,123 @@ export default function Weather(props) {
       }
     
       let form = (
-        <form onSubmit={handleSearch}>
-          <input
+        
+            <form onSubmit={handleSearch}>
+              <div class="row">
+              <div class="col-9"> <input class="form-control search-input"
             type="search"
             onChange={updateCity}
             placeholder="Enter a city..."
-          />
-          <button type="submit">Search</button>
+          /></div>
+              <div class="col-3 p-0">  <button class="btn btn-primary w-100" type="submit">Search</button></div>
+         
+            </div>
         </form>
+       
+      
       );
     
       if (loaded) {
         return (
           <div>
             {form}
-            <ul>
-              <li>Temperature: {Math.round(weather.temperature)}°C</li>
-              <li>Description: {weather.description}</li>
-              <li>Humidity: {weather.humidity}%</li>
-              <li>Wind: {weather.wind}km/h</li>
-              <li>
-                <img src={weather.icon} alt={weather.description} />
-              </li>
+<div class="Weather-info"> 
+  <div class="row">
+    <div class="col-6">
+      <h1>{weather.name}</h1>
+
+  <ul>
+    <li><span>Friday 12:56</span> {weather.description}</li>
+              
+              <li>Humidity: {weather.humidity}%, Wind: {weather.wind}km/h</li>
+              
             </ul>
+            </div>
+     <div class="col-lg-6 col-md-6 col-sm-8">
+     <div class="temperature-container d-flex justify-content-end">
+     <img class= "canvas" src={weather.icon} alt={weather.description} />
+        <div class="temperature">
+       {Math.round(weather.temperature)}<span class="unit">°C</span>
+        </div> 
+
+         </div>
+         
+      </div>    
+      
+            </div>
+            <div class="row WeatherForecast">
+<div class="col">
+<div class="WeatherForecast">
+  <div class="forecast-time">Fri</div>
+  <img class= "canvas" src={weather.icon} alt={weather.description} />
+  <div class="forecast-temperature">
+    <span class="forecast-temperature-max">13°</span>
+    <span class="forecast-temperature-min">10°</span>
+  </div>
+  <div>
+  
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="WeatherForecast">
+  <div class="forecast-time">Sut</div>
+  <img class= "canvas" src={weather.icon} alt={weather.description} />
+  <div class="forecast-temperature">
+    <span class="forecast-temperature-max">13°</span>
+    <span class="forecast-temperature-min">10°</span>
+  </div>
+  <div>
+  
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="WeatherForecast">
+  <div class="forecast-time">Sun</div>
+  <img class= "canvas" src={weather.icon} alt={weather.description} />
+  <div class="forecast-temperature">
+    <span class="forecast-temperature-max">13°</span>
+    <span class="forecast-temperature-min">10°</span>
+  </div>
+  <div>
+  
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="WeatherForecast">
+  <div class="forecast-time">Mon</div>
+  <img class= "canvas" src={weather.icon} alt={weather.description} />
+  <div class="forecast-temperature">
+    <span class="forecast-temperature-max">13°</span>
+    <span class="forecast-temperature-min">10°</span>
+  </div>
+  <div>
+  
+  </div>
+</div>
+</div>
+<div class="col">
+<div class="WeatherForecast">
+  <div class="forecast-time">Tue</div>
+  <img class= "canvas" src={weather.icon} alt={weather.description} />
+  <div class="forecast-temperature">
+    <span class="forecast-temperature-max">13°</span>
+    <span class="forecast-temperature-min">10°</span>
+  </div>
+  <div>
+  
+  </div>
+</div>
+
+</div>
+
+<footer>
+  This project was coded by Olena Berezina and <a href="">is open-sourced on GitHub</a> and hosted on Netlify
+</footer>
+              </div>  
+            </div>
           </div>
         );
       } else {
