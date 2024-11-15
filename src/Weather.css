@@ -115,6 +115,11 @@
   margin-bottom: 5px;
 }
 
+.Weather li strong {
+  color: #f65282;
+  font-weight: 400;
+}
+
 
 .WeatherForecast {
   border-bottom: 1px solid #f9f7fe;
